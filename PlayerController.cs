@@ -36,10 +36,16 @@ public class PlayerController : MonoBehaviour
         movementX = movementVector.x;
         movementY = movementVector.y;
     }
+    void OnJump(InputValue jumpValue)
+    {
+        Debug.Log("Jumping!!!");
+        rb.AddForce(Vector3.up*5f,ForceMode.Impulse);
+
+    }
     void SetCountText()
     {
         countText.text = "Score : " + count.ToString();
-        if (count >= 7)
+        if (count >= 12)
         {
             //winTextObject.SetActive(true);
             SceneManager.LoadSceneAsync(2);
